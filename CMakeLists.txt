@@ -2,12 +2,17 @@ cmake_minimum_required(VERSION 3.0...3.10)
 
 project(zip-fix-filename-encoding VERSION 1.0 LANGUAGES C)
 
-include(CheckFunctionExists)
+include(CheckSymbolExists)
+include(CheckIncludeFile)
+
+check_include_file(unistd.h HAVE_UNISTD_H)
+
 set(CMAKE_REQUIRED_LIBRARIES "c") 
-check_function_exists(mkstemp HAVE_MKSTEMP)
+check_symbol_exists(mkstemp "unistd.h" HAVE_MKSTEMP)
+check_symbol_exists(fseeko "stdio.h" HAVE_FSEEKO)
 unset(CMAKE_REQUIRED_LIBRARIES)
 
-configure_file(config.h.in config.h)
+configure_file(config.h.cm.in config.h)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 

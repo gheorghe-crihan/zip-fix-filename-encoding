@@ -4,7 +4,7 @@
 #undef HAVE_DLFCN_H
 
 /* Define to 1 if you have the `fseeko' function. */
-#undef HAVE_FSEEKO
+#cmakedefine HAVE_FSEEKO @HAVE_FSEEKO@
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
@@ -37,7 +37,7 @@
 #undef HAVE_SYS_TYPES_H
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#undef HAVE_UNISTD_H
+#cmakedefine HAVE_UNISTD_H @HAVE_UNISTD_H@
 
 /* Name of package */
 #undef PACKAGE
